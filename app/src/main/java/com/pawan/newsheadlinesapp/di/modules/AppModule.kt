@@ -44,7 +44,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideArticleDatabase(application: Application): NewsDatabase {
+    fun provideNewsDatabase(application: Application): NewsDatabase {
         return Room.databaseBuilder(
             application,
             NewsDatabase::class.java,
@@ -54,7 +54,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideArticleDao(articleDatabase: NewsDatabase): NewsDao {
-        return articleDatabase.newsDao()
+    fun provideNewsDao(newsDatabase: NewsDatabase): NewsDao {
+        return newsDatabase.newsDao()
     }
 }
