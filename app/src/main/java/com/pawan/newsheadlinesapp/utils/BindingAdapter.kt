@@ -12,7 +12,10 @@ class BindingAdapter {
 
         @JvmStatic
         @BindingAdapter("imageUrl")
-        fun loadImage(view: ImageView, url: String) {
+        fun loadImage(view: ImageView, url: String?) {
+            if (url.isNullOrBlank())
+                return
+
             Glide.with(view.context).load(url).apply(RequestOptions().centerCrop()).into(view)
         }
 
